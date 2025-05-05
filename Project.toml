@@ -1,0 +1,7 @@
+name = "AdaptiveStepSize"
+uuid = "7d84fdfd-9968-451e-b556-cbaf6a09f307"
+authors = ["pmc4 <117096890+pmc4@users.noreply.github.com> and contributors"]
+version = "0.0.1"
+
+[compat]
+julia = "1.11"
