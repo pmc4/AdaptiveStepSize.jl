@@ -1,3 +1,6 @@
 [deps]
 AdaptiveStepSize = "7d84fdfd-9968-451e-b556-cbaf6a09f307"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+
+[compat]
+Documenter = "1.10"
