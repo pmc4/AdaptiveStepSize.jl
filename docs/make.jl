@@ -14,6 +14,10 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Interpolation methods" => [
+            "Linear interpolation" => "linear_interpolation.md",
+        ],
+        "Theory" => "theory.md",
     ],
 )
 
