@@ -1,3 +1,10 @@
+"""
+Main module for `AdaptiveStepSize.jl`, a Julia package used to obtain the minimum amount of points needed for the interpolation of a function in the given interval within the desired tolerance.
+
+Only linear interpolation methods are implemented for now. Any contribution is wecolmed to further implement other methods.
+
+Check the docs for more information.
+"""
 module AdaptiveStepSize
 
 using Enzyme
@@ -19,20 +26,15 @@ within a tolerance `tol`.
 See also [`points_linear_singular`](@ref) for managing singular points.
 
 # Arguments
-- `f`: The function used for the linear interpolation. It must be of the form of f(x; kwargs...),
-where `x` is a number.
+- `f`: The function used for the linear interpolation. It must be of the form of f(x), where `x` is a number.
 - `domain`: a tuple or array representing the interpolation domain, e.g., the tuple (a, b).
-- `tol::T where T <: Real`: the desired tolerance of the points. The real value of the function
-at any point xᵢ minus the aproximation will be smaller than `tol`, i.e., |f(xᵢ) - yᵢ| < tol.
+- `tol::T where T <: Real`: the desired tolerance of the points. The real value of the function at any point xᵢ minus the aproximation will be smaller than `tol`, i.e., |f(xᵢ) - yᵢ| < tol.
 
 # Keywords
-- `scan_step`: Minimum step size that will be used to scan the whole domain. The returned
-points will have at least a spacing of `scan_step`. Very small values will produce a very long
-execution time. By default it will divide the domain in 100 intervals.
+- `scan_step`: Minimum step size that will be used to scan the whole domain. The returned points will have at least a spacing of `scan_step`. Very small values will produce a very long execution time. By default it will divide the domain in 100 intervals.
 
 # Returns
-- `(xs, ys)`: A tuple containing two arrays of points, `xs` for the independent variable and
-`ys` for the computed values of the function.
+- `(xs, ys)`: A tuple containing two arrays of points, `xs` for the independent variable and `ys` for the computed values of the function.
 
 # Notes
 The function `f` must have a continuous second derivative in order to compute the linear
