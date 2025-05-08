@@ -6,7 +6,7 @@
 
 AdaptiveStepSize is a Julia package used to obtain the minimum amount of points needed for the interpolation of a function in the given interval within the desired tolerance.
 
-Given a function $f(x)$, defined on the interval $[a,\, b]$, and an interpolation method, it subdivides the interval with the maximum spacing between points such that the interpolation has an error smaller than the given tolerance.
+Given a function $f(x)$, defined on the interval $[a, b]$, and an interpolation method, it subdivides the interval with the maximum spacing between points such that the interpolation has an error smaller than the given tolerance.
 
 ## Aim of this package
 
@@ -28,5 +28,5 @@ add AdaptiveStepSize
 
 For the moment, only linear interpolation is implemented. Any contribution is welcomed to further implement other methods.
 
-An example of the points generated for a piecewise function with a tolerance of $5\times 10^{-3}$ using linear interpolation is:
+An example of the points generated for a piecewise function with a tolerance of 5e-3 using linear interpolation is:
 ![Piecewise function with linear interpolation](/assets/example_plot_piecewise.png)
