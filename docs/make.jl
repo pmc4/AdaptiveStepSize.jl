@@ -12,12 +12,13 @@ makedocs(;
         edit_link="main",
         assets=String[],
     ),
-    pages=[
+    pages=Any[
         "Home" => "index.md",
-        "Interpolation methods" => [
+        "Usage" => [
             "Linear interpolation" => "linear_interpolation.md",
         ],
         "Theory" => "theory.md",
+        hide("API" => "internals.md"),
     ],
 )
 
