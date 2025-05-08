@@ -51,7 +51,7 @@ Note that even though the second derivative of our function $f(x) = \sqrt{2x}$ i
 
 ## Singularities
 
-A singularity is a point at which the function is not defined or is not well-behaved. A typical example is $|x|$, in which the function is continuous at $x = 0$ but not differentiable (the derivative is not continuous at that point). For these kind of functions, we can use [`points_linear_singular`](@ref). The only difference between this function and [`points_linear`](@ref) is that here we need to pass an extra parameter called `singularities`. This must be a `Vector{T}` where `T<:Real` containing all those singular points. The algorithm will compute the points for each subinterval delimited by this `singularities` vector.
+A singularity is a point at which the function is not defined or is not well-behaved. A typical example is $|x|$, in which the function is continuous at $x = 0$ but not differentiable (the derivative is not continuous at that point). For these kind of functions, we can use [`points_linear_singular`](@ref). The only difference between this method and [`points_linear`](@ref) is that here we need to pass an extra parameter called `singularities`. This must be a `Vector{T}` where `T<:Real` containing all those singular points. The algorithm will compute the points for each subinterval delimited by this `singularities` vector.
 
 ```@docs
 points_linear_singular
@@ -229,9 +229,9 @@ function f(x)
     end
 end
 
-domain1 = (0.0, 2π - 1e-15)
+domain1 = (0.0, 2π - 1e-15) # Notice how 2π is not exactly included here
 domain2 = (2π, 10.0)
-domain3 = (10.0 + 1e-15, 20.0)
+domain3 = (10.0 + 1e-15, 20.0) # The same happens with x = 10.0, it is an open interval
 
 tol = 1e-2;
 xs1, ys1 = points_linear(f, domain1, tol; scan_step = 1e-4)
@@ -239,7 +239,7 @@ xs2, ys2 = points_linear(f, domain2, tol; scan_step = 1e-4)
 xs3, ys3 = points_linear(f, domain3, tol; scan_step = 1e-4)
 ```
 
-When we plot the results we explicitly get the endpoints.
+Note that when defining the domains, we are adding or substracting a very small number (`1e-15`). This is because the first segment is valid for $x < 2\pi$, so the first domain must be open on the right side (it cannot include the point $2\pi$). Mathematically this is represented by the interval $[0,\, 2\pi)$. On the computer, we can do the same by subtracting a very small number, i.e., `domain1 = [0.0, 2π - 1e-15]`. The same happens with the last segment that is only valid for $x > 10$. We cannot include the point $10$ on `domain3`. That is why we represent it as `domain3 = [10.0 + 1e-15, 20.0]`. When we plot the results we explicitly get the endpoints.
 
 ```@example piecewise_example
 plot2() # hide
