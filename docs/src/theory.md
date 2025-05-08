@@ -22,6 +22,6 @@ If $f$ has a continuous second derivative, i.e., is a function of class $C^2$, t
     \left|R_T\right| \leq \dfrac{(x_1 - x_0)^2}{8} \max_{x_0\, \leq\, x\, \leq\, x_1} \left|f^{\prime\prime}(x)\right|\, .
 ```
 
-We can further divide $f(x)$ in several subintervals, delimited by $\lbrace x_i \rbrace_{i=0}^{n}$ and apply a linear interpolation to each of the subintervals.
+In addition, we can further divide $f(x)$ in several subintervals, delimited by $\lbrace x_i \rbrace_{i=0}^{n}$ and apply a linear interpolation to each of the subintervals.
 
 If the function does not have a continuous second derivative, we cannot use the previous equation to estimate the error bound. However, if the discontinuities are *removable discontinuities* or *jump discontinuities* at different points $d_i$, we can locally apply the linear interpolation at the open intervals $(d_{i-1},\, d_i)$.
